@@ -7,12 +7,12 @@ const db = require("../../config/connection");
 router
   .route("/")
   .get(function(req, res) {
-    db.query("SELECT * FROM todos", function(err, dbTodos) {
+    db.query("SELECT * FROM burgers", function(err, dbTodos) {
       if (err) {
         console.log(err);
         return res.status(500).json(err);
       }
-      res.render("todos", {todoList: dbTodos});
+      res.render("burgers", {todoList: dbTodos});
     });
   });
 

@@ -5,7 +5,7 @@ $(document).ready(function(){
     // read id from button
     const todoId = $(this).attr("data-id");
     $.ajax({
-      url: "/api/todos/" + todoId,
+      url: "/api/burgers/" + todoId,
       method: "PUT"
     }).then(function(data) {
       location.reload();
@@ -18,7 +18,7 @@ $(document).ready(function(){
     // read id from button
     const todoId = $(this).attr("data-id");
     $.ajax({
-      url: "/api/todos/" + todoId,
+      url: "/api/burgers/" + todoId,
       method: "DELETE"
     }).then(function (data) {
       location.reload();
@@ -31,11 +31,11 @@ $(document).ready(function(){
 
     // package up todo
     const todoItem = {
-      todo: $("#todo-input").val().trim()
+      burger_name: $("#todo-input").val().trim()
     }
 
     $.ajax({
-      url: "/api/todos",
+      url: "/api/burgers",
       method: "POST",
       data: todoItem // req.body
     })

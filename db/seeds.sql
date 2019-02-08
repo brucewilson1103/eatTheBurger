@@ -1,9 +1,7 @@
-USE todos_db;
+USE burgers_db;
 
-INSERT INTO todos
-  (todo)
+INSERT INTO burgers
+  (burger_name)
 VALUES
-  ("Create more todos"),
-  ("Finish app"),
-  ("Win over my class");
-  
+  ("BBQ Burger"),
+   ("BLT Burger")
