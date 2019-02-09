@@ -1,19 +1,19 @@
 <div class="row">
   <div class="col-4">
     <form>
-      {{> section-title title="Add A Todo"}}
+      {{> section-title title="Add A Bodacious Burger"}}
       <div class="form-group">
-        <input class="form-control" type="text" id="todo-input" placeholder="Create your todo here"/>
-        <button class="mt-1 btn btn-block btn-success" id="submit-btn">Add Todo</button>
+        <input class="form-control" type="text" id="burger-input" placeholder="Create your burger here"/>
+        <button class="mt-1 btn btn-block btn-success" id="submit-btn">Add Burger</button>
       </div>
     </form>
   </div>
   <div class="col-4">
-    {{> section-title title="Todos that are still todo"}}
+    {{> section-title title="Burgers that I Dream to Someday Eat"}}
     <ul class="list-group">
-    {{#each todoList}}
-      {{#unless completed}}
-        {{> todos/todo status="Not devoured"}}
+    {{#each burgerList}}
+      {{#unless devoured}}
+        {{> burgers/burger status="Not devoured"}}
       {{/unless}}
     {{/each}}
     </ul>
@@ -21,9 +21,9 @@
   <div class="col-4">
     {{> section-title title="Devoured Burgers"}}
     <ul class="list-group">
-      {{#each todoList}}
+      {{#each burgerList}}
         {{#if devoured}}
-          {{> todos/todo status="Devoured"}}
+          {{> burgers/burger status="Devoured"}}
         {{/if}}
       {{/each}}
     </ul>

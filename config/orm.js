@@ -1,7 +1,7 @@
 const db = require("./connection");
 
 module.exports = {
-  // find all todos
+  // find all burgers in the database
   selectAll: function (req, res) {
     db
       .query("SELECT * FROM burgers", function (err, dbBurgers) {
@@ -17,19 +17,19 @@ module.exports = {
   // find burger by id (this will come in req.params.id)
   // findById: function (req, res) {
   //   db
-  //     .query("SELECT * FROM todos WHERE id = ?", [req.params.id], function (err, dbTodos) {
+  //     .query("SELECT * FROM burgers WHERE id = ?", [req.params.id], function (err, dbBurgers) {
   //       if (err) {
   //         console.log(err);
   //         return res
   //           .status(400)
   //           .json(err);
   //       }
-  //       res.json(dbTodos[0]);
+  //       res.json(dbburgers[0]);
   //     });
   // },
-  // insert / create new todo item (takes in req.body via POST)
+  // insert / create new burger item (takes in req.body via POST)
   insertOne: function (req, res) {
-    // req.body => {todo: "Make a todo"}
+    // req.body => {burger: "Make a burger"}
     db
       .query("INSERT INTO burgers SET ?", req.body, function (err, dbBurgers) {
         if (err) {
@@ -41,7 +41,7 @@ module.exports = {
         res.json(dbBurgers);
       });
   },
-  // UPDATE/PUT a todo to mark it from incomplete to complete (false => true),
+  // UPDATE/PUT a burger to mark it from uneaten to devoured (false => true),
   // this will use req.params.id to know where they're updating
   updateOne: function (req, res) {
     // req.params => {id : 1} req.params.id => 1
@@ -57,16 +57,16 @@ module.exports = {
       })
   },
   // delete a todo based on its id (req.params.id)
-  // deleteTodo: function (req, res) {
+  deleteBurger: function (req, res) {
 
-  //   db.query("DELETE FROM todos WHERE id = ?", [req.params.id], function (err, dbTodos) {
+    db.query("DELETE FROM burgers WHERE id = ?", [req.params.id], function (err, dbBurgers) {
 
-  //       if (err) {
-  //         console.log(err);
-  //         return res.status(400).json(err);
-  //       }
-  //       res.json(dbTodos);
-  //     });
+        if (err) {
+          console.log(err);
+          return res.status(400).json(err);
+        }
+        res.json(dbBurgers);
+      });
 
-  // }
+  }
 }

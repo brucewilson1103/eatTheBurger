@@ -19,7 +19,7 @@ db.connect(err => {
   if (err) {
     throw err;
   }
-  console.log("connected to the db");
+  console.log("Connected to the Burger database!");
 });
 
 module.exports = db;
