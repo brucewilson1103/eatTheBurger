@@ -4,8 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="/public/assets/css/burger_style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+
 <title>Bruce's Big Beefy Bodacious Burger Bulletin</title>
 </head>
 <body>
@@ -13,6 +15,35 @@
     <div class="jumbotron bg-dark text-light">
       <h1>Bruce's Big Beefy Bodacious Burger Bulletin</h1>
     </div>
+{{!-- this is a background that I found on github using threejs not sure how it works all the way through but it is cool --}}
+<!-- <nodes.js embedding> -->
+    <script type="text/javascript" src="assets/js/nodes.js"></script>
+    <script type="text/javascript">
+        var nodesjs = new NodesJs({
+            id: 'nodes',
+            width: window.innerWidth,
+            height: window.innerHeight,
+            backgroundFrom: [10, 25, 100],
+            backgroundTo: [25, 50, 150],
+            backgroundDuration: 4000,
+            number: window.hasOwnProperty('orientation') ? 30: 100,
+            speed: 20
+        });
+    </script>
+    <div style="position: absolute; left: 0px; top: 0px; overflow: hidden; width: 100%; height: 100%; z-index: -11">
+        <canvas id="nodes"></canvas>
+    </div>
+    <!-- </nodes.js embedding> -->
+
+    <script type="text/javascript">
+        window.onresize = function () {
+            nodesjs.setWidth(window.innerWidth);
+            nodesjs.setHeight(window.innerHeight);
+        };
+    </script>
+
+
+  
   {{{body}}}
   </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
